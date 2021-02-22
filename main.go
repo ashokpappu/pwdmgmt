@@ -9,12 +9,14 @@ import (
 )
 
 func main() {
+
 	fmt.Printf("Hello World")
 	a := app.New()
 	w := a.NewWindow("Password Management Tool")
-	hello_w := widget.Label{Text: " Hello Fyne"}
-	widget_button := widget.NewButton("Hi!", func() { hello_w.SetText("Welcome :)") })
-	vboxCntnr := container.NewVBox(widget_button)
+	var hello_w widget.Label
+	hello_w.SetText("Welcome:")
+	var widgetButton = widget.NewButton("Hi!", widgetButtonHiClicked)
+	vboxCntnr := container.NewVBox(widgetButton)
 	w.SetContent(vboxCntnr)
 	w.SetCloseIntercept(closeOn)
 	w.ShowAndRun()
@@ -22,4 +24,8 @@ func main() {
 }
 func closeOn() {
 	fmt.Printf("close button clicked")
+}
+
+func widgetButtonHiClicked() {
+
 }
